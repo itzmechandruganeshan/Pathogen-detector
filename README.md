@@ -55,10 +55,3 @@ To get started with the Pathogen Detector, follow these steps:
 ## Conclusion
 
 The Pathogen Detector represents a significant advancement in laboratory pathogen analysis, providing faster, more accurate, and more efficient results compared to traditional methods. This innovative approach not only enhances the capabilities of laboratory personnel but also contributes to improved public health outcomes through timely pathogen detection.
-
-For further inquiries or contributions, please contact the project maintainer.
-```
-
-### Notes:
-- Feel free to modify or expand upon any sections based on specific details or features of your project.
-- You can add your contact information or any other relevant links if necessary.
