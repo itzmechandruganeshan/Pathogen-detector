@@ -4,6 +4,7 @@ import numpy as np
 import scipy
 import matplotlib.pyplot as plt
 import io
+import os
 import tempfile
 from PIL import Image
 from matplotlib.backends.backend_agg import FigureCanvas
@@ -20,8 +21,10 @@ class PyMicro:
     def __init__(self):
         self.HRM_data = pd.DataFrame()
         self.melt_converted_data = pd.DataFrame()
-        self.threshold_data = pd.read_excel("Threshold_data.xlsx")
+        self.threshold_data_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data","Threshold_data.xlsx")
+        self.threshold_data = pd.read_excel(self.threshold_data_path)
         self.features = pd.DataFrame()
+        self.model_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "model","random_forest_model_ct.pkl")
         self.xaxis = []
         self.take_off_points = []
         self.pathogens = []
@@ -257,7 +260,7 @@ class PyMicro:
         model_result = []
         original_variable = {}
         result_dataframe = pd.DataFrame(columns=['Pathogens', "Result"])
-        model = pd.read_pickle("random_forest_model_ct.pkl")
+        model = pd.read_pickle(self.model_path)
         dummy_variable = {"EV": 0, "HI": 1, "HSV": 2,
                           "CMV": 3, "NM": 4, "VZV": 5, "SP": 6}
         feature_data = self.features.copy()

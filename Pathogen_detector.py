@@ -2,23 +2,27 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 from streamlit_gsheets import GSheetsConnection
-from Rexcel import HRM_data, CT_Cycle
-from PyMicro import *
+from rextractor.Rexcel import HRM_data, CT_Cycle
+from pymicro.PyMicro import *
 import yaml
+import io
 import time
 from PIL import Image
 import plotly.express as px
-import io
 from fpdf import FPDF
-icon_image = Image.open("Pathogen Detector Icon.ico")
-# Set the page configuration
+
+icon_path = os.path.join("icons", "Pathogen Detector Icon.ico")
+icon_image = Image.open(icon_path)
+
+# Set the page configurationons
 st.set_page_config(page_title="Pathogen Detector",
                    initial_sidebar_state="expanded", layout="wide", page_icon=icon_image)
 
 gsheet_url = "https://docs.google.com/spreadsheets/d/1L5hBrjqB_7UWtcURcEHSa_wqmV-ru-9LpHVgIOMxpdY"
 
 # Load the YAML file
-with open('credentials.yaml', 'r') as file:
+credential_path = os.path.join("credentials","credentials.yaml")
+with open(credential_path, 'r') as file:
     credentials = yaml.safe_load(file)
 
 
@@ -386,7 +390,8 @@ class Pathogen_Detector:
                                 pdf.ln(5)
                                 pdf.set_font("Arial", "", 12)
                                 pdf.cell(0, 10, "Tm Threshold", ln=True)
-                                tm_data = pd.read_excel("Expected_Tm.xlsx")
+                                tm_data_path = os.path.join("data","Expected_Tm.xlsx")
+                                tm_data = pd.read_excel(tm_data_path)
 
                                 total_table_width = 24 * len(tm_data.columns)
                                 x_center = (pdf.w - total_table_width) / 2

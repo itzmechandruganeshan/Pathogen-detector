@@ -1,0 +1,26 @@
+# Ignore __pycache__ folders from all directories
+**/__pycache__/
+/png
+
+# Ignore .env files from all directories
+.env
+
+# Ignore compiled Python files
+**/*.py[cod]
+
+# Ignore log files
+**/*.log
+
+# Ignore Jupyter Notebook checkpoints
+**/.ipynb_checkpoints/
+
+# Ignore local settings and config files
+*.local
+*.config
+
+# Ignore .ipynb files
+*.ipynb
+
+# Ignore this file
+/feature_extraction.ipynb
+
