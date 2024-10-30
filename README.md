@@ -36,7 +36,7 @@ To get started with the Pathogen Detector, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/chandru-g24/Pathogen-detector.git
+   git clone https://github.com/itzmechandruganeshan/Pathogen-detector.git
    cd app
    ```
 
